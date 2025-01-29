@@ -25,17 +25,14 @@ public class MainActivity extends ToolbarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_add:
-                startActivity(new Intent(this, SecondActivity.class));
-                return true;
-
-            case R.id.action_settings:
-                Toast.makeText(this, R.string.msg_settings, Toast.LENGTH_SHORT).show();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.action_add) {
+            startActivity(new Intent(this, SecondActivity.class));
+            return true;
+        } else if (item.getItemId() == R.id.action_settings) {
+            Toast.makeText(this, R.string.msg_settings, Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 }
